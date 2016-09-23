@@ -12,7 +12,7 @@ static const int PlaceholderHorizontalPadding = 5;
 static const int PlaceholderVerticalPadding = 8;
 
 
-@interface GATextView()<UITextViewDelegate>
+@interface GATextView()
 
 
 
@@ -51,7 +51,6 @@ static const int PlaceholderVerticalPadding = 8;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChangedNotificationHandler:) name:UITextViewTextDidChangeNotification object:self];
     self.borderColor = [UIColor lightGrayColor];
     self.placeholderColor = [UIColor lightGrayColor];
-    self.delegate = self;
     self.maxTextLength = -1;
     self.borderWidth = 1;
 
@@ -141,6 +140,9 @@ static const int PlaceholderVerticalPadding = 8;
         CGRect frame = self.frame;
         frame.size.height = _calculatedTextHeight;
         self.frame = frame;
+        if(_delegateGA&&[_delegateGA respondsToSelector:@selector(GATextViewHeightHasChanged:)]) {
+            [_delegateGA GATextViewHeightHasChanged:self];
+        }
     }
 }
 

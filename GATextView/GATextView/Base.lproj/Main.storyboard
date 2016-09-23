@@ -35,7 +35,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="19"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoGrowHeight" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoAdjustHeight" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textView>

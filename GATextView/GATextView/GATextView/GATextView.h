@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class GATextView;
+@protocol GATextViewDelegate <NSObject>
+
+- (void)GATextViewHeightHasChanged:(GATextView *)textView;
+
+@end
+
+
+
 IB_DESIGNABLE
 @interface GATextView : UITextView
 //placeholder
@@ -28,5 +37,6 @@ IB_DESIGNABLE
 //匹配文字的高度
 @property (nonatomic,assign) CGFloat calculatedTextHeight;
 
+@property (nonatomic,weak) id<GATextViewDelegate> delegateGA;
 
 @end
